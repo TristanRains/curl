@@ -18,3 +18,12 @@ A Python script mimicking basic `curl` functionality using python's `requests` m
 python3 curl.py -m GET -u http://target_ip:port/ -v -o res.txt
 
 python3 curl.py -m POST -u https://httpbin.org/ -p '{"name":"alice", "role":"developer"}' -v
+
+## Prerequisites:
+
+This script requires python3 and the `requests` package (all other imported modules are included with standard python)
+
+Install the required package using pip:
+
+```bash
+pip install requests
