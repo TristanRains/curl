@@ -23,26 +23,26 @@ def parse_args():
     args= parser.parse_args()
     return args
     
-def MakeRequest(output, verbose, headers, url, method, params, json):
+def make_request(args):
     #Execute the HTTP request and handle output formatting
     time.sleep(1)
     print(f"Request made at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     if verbose:
-        print(f"Making request with headers: {headers} to {url}, with parameters: {params} and json body: {json}")
-    if method.upper() == 'GET':
+        print(f"Making request with headers: {args.headers} to {args.url}, with parameters: {args.params} and json body: {args.json}")
+    if args.method.upper() == 'GET':
         print("Performing GET request")
-        request = requests.get(url, headers=headers, verify=True)
-    elif method.upper() == 'POST':
+        request = requests.get(args.url, headers=args.headers, verify=True)
+    elif args.method.upper() == 'POST':
         print("Performing POST request")
-        request = requests.post(url, headers=headers, params=params, data=json, verify=True)
-    elif method.upper() == 'PUT':
+        request = requests.post(args.url, headers=args.headers, params=args.params, data=args.json, verify=True)
+    elif args.method.upper() == 'PUT':
         print("Performing PUT request")
-        request = requests.put(url, headers=headers, verify=True)
-    elif method.upper() == 'DELETE':
+        request = requests.put(args.url, headers=args.headers, verify=True)
+    elif args.method.upper() == 'DELETE':
         print("Performing DELETE request")
-        request = requests.delete(url, headers=headers, verify=True)
-    if output:
-        output = output
+        request = requests.delete(args.url, headers=headers, verify=True)
+    if args.output:
+        output = args.output
     else:
         print("No output file provided, saving to results.txt")
         output= "results.txt"
@@ -79,4 +79,4 @@ if __name__ == "__main__":
         print(f"Selected parameters: {args.params}")
     if args.json:
         print(f"Chosen JSON body: \n{args.json}")
-    MakeRequest(args.output, args.verbose, args.headers, args.url, args.method, args.params, args.json)
+    make_request(args)
