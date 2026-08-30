@@ -1,13 +1,8 @@
-#This script tries to replicate the functionality of the curl command using python's requests module
+'''
+This Python script replicates core curl command functionality using argparse for parsing arguments and python's requests module to make web requests
+JSON is also necessary for parsing headers, parameters and a JSON body
+'''
 
-'''
-We start with importing the necessary modules
-We will need argparse to parse arguments from the terminal
-We will need sys to exit the program cleanly
-We will use time to add a delay and datetime to determine the start and completion times for the request
-We will use JSON to parse json headers and parameters
-Finally, we will use requests to handle our requests
-'''
 import argparse
 import sys
 import time
