@@ -27,7 +27,7 @@ def make_request(args):
     #Execute the HTTP request and handle output formatting
     time.sleep(1)
     print(f"Request made at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    if verbose:
+    if args.verbose:
         print(f"Making request with headers: {args.headers} to {args.url}, with parameters: {args.params} and json body: {args.json}")
     if args.method.upper() == 'GET':
         print("Performing GET request")
