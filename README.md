@@ -1,27 +1,20 @@
 # curl.py
 
-A Python script with mimicking basic 'curl' functionality using python's 'requests' module
+A Python script mimicking basic `curl` functionality using python's `requests` module
 
-arguments: -o/--output, -v/--verbose, -x/--headers, -u/--url, -m/--method, -p/--params, -j/--json
+## Arguments: 
 
-The output argumet is to provide an output file, a default file will be chosen if not provided
+* `-o, --output`: File path to save the response (default if no file provided)
+* `-v, --verbose`: Display the final request details before execution
+* `-x, --headers`: Add custom headers
+* `-u, --url`: Target URL for the request
+* `-m, --method`: HTTP request method(`GET`, `POST`, `PUT`, `DELETE`)
+* `-p, --params`: Provide query parameters in JSON format
+* `-j, --json`: Provide a JSON request body
 
-The verbose argument is to display final request before execution
+## Example Usage:
 
-The headers argument is to add custom headers
-
-The url argument is to provide a target url
-
-The method option is to provide a request method - GET, POST, PUT, DELETE
-
-The params option is to provide parameters in json format
-
-The json option is to provide a json body
-
-Example use cases:
-
+```bash
 python3 curl.py -m GET -u http://target_ip:port/ -v -o res.txt
-
-python3 curl.py -m GET -u https://google.com/ -v
 
 python3 curl.py -m POST -u https://httpbin.org/ -p '{"name":"alice", "role":"developer"}' -v
