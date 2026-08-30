@@ -17,7 +17,7 @@ A Python script mimicking basic `curl` functionality using python's `requests` m
 ```bash
 python3 curl.py -m GET -u http://target_ip:port/ -v -o res.txt
 
-python3 curl.py -m POST -u https://httpbin.org/post -v -x '{"Content-Type": "application/json"}' -p '{"username":"John", "role":"admin"}'
+python3 curl.py -m POST -u https://httpbin.org/post -v -x '{"Content-Type": "application/json"}' -p '{"username": "John Doe", "role": "admin"}'
 ```
 
 ## Prerequisites:
