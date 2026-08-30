@@ -1,9 +1,10 @@
 # curl.py
-A script with some curl functionality using python's requests module
 
-The script takes several arguments: -o/--output, -v/--verbose, -x/--headers, -u/--url, -m/--method, -p/--params, -j/--json
+A Python script with mimicking basic 'curl' functionality using python's 'requests' module
 
-The output argument is to provide an output file, a default file will be chosen if not provided
+arguments: -o/--output, -v/--verbose, -x/--headers, -u/--url, -m/--method, -p/--params, -j/--json
+
+The output argumet is to provide an output file, a default file will be chosen if not provided
 
 The verbose argument is to display final request before execution
 
