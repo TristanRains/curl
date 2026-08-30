@@ -1,7 +1,7 @@
-'''
-This Python script replicates core curl command functionality using argparse for parsing arguments and python's requests module to make web requests
-JSON is also necessary for parsing headers, parameters and a JSON body
-'''
+"""
+This Python script replicates core curl command functionality
+Parses headers, parameters, and JSON
+"""
 
 import argparse
 import sys
@@ -10,15 +10,8 @@ import requests
 import json
 from datetime import datetime
 
-'''
-This function parse_args() parses our arguments and returns the final args result
-We have the option of -v for verbosity, with store true so that it is false by default
-We have included a description and help features which can be accessed with python3 curl.py -h
-We have inlucded an optional -o to provide an output file
-We have included the option of headers, parameters, and json data for requests
-We also included the url and method
-'''
 def parse_args():
+    # Parse command-line arguments for HTTP request configurations
     parser = argparse.ArgumentParser(description="Make requests to a specified URL and save the response to a file.")
     parser.add_argument('-o', '--output', type=str, help="Output file path, example: -o results.txt")
     parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose output')
@@ -29,17 +22,9 @@ def parse_args():
     parser.add_argument('-j', '--json', type=json.loads, default={}, help="For making a request with a JSON body. Example syntax '{'username': 'John', 'role': 'admin'}'")
     args= parser.parse_args()
     return args
-
-'''
-The function MakeRequest() has the parsed arguments as its arguments. We start by simulating a delay and recording the current start time
-We then go through each argument and perform the appropriate action depending on which arguments are entered, verbose mode repeats the selected arguments
-We do this by making a request to the target url with requests, headers, parameters and verify set to True to ensure secure communication
-We then write the results to a text file, if the output file option is left empty, we create a filename results.txt and write to that instead
-We write the response text if it exists else No response
-We also attempt to read any json in the response else response is not in valid JSON format
-Finally, we write the response to the output file before printing the completion time and exiting cleanly with sys.exit(0)
-'''
+    
 def MakeRequest(output, verbose, headers, url, method, params, json):
+    #Execute the HTTP request and handle output formatting
     time.sleep(1)
     print(f"Request made at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     if verbose:
@@ -75,12 +60,9 @@ def MakeRequest(output, verbose, headers, url, method, params, json):
     print(f"Response written to {output}")
     print(f"Request completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     sys.exit(0)
-
-'''
-In our main code block, we call the arg_parse function to parse any arguments
-We then go through args to check which arguments are provided and print the chosen arguments
-'''
+    
 if __name__ == "__main__":
+    # print information regarding which commands have been selected before making the request
     args = parse_args()
     print(f"Output file: {args.output}")
     if args.url:
